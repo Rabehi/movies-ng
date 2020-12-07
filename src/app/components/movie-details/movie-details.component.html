@@ -1,0 +1,19 @@
+<div class="container" style="margin-top: 30px;" >
+    <div class="row">
+        <div class="col">
+            <img src={{movie.poster_path}} class="rounded" width="180" height="250">
+        </div>
+        <div class="col" style="text-align: left;">
+            <h2>{{movie.title}}</h2>
+            <p>Fecha de lanzamiento: {{movie.release_date | date: 'dd-MM-yyyy'}}</p>
+            <p>Idioma versión original: {{movie.original_language}}</p>
+            <p>Media de votos: {{movie.vote_average}}</p>
+            <p>Popularidad: {{movie.popularity}}</p>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <h3>Resumen</h3>
+        <p>{{movie.overview}}</p>
+        <button type="button" class="btn btn-primary" (click)="restart()">Nueva búsqueda</button>
+    </div>
+</div>

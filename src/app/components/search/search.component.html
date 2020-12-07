@@ -1,0 +1,22 @@
+<div class="container p-3 my-3 bg-primary text-white rounded">
+    <h1 (click)="restart()" style="text-align: center; cursor: pointer;">Buscardor de películas</h1>
+    <div class="form-group" (keyup.enter)="getQueryMovies(inputtext.value)">
+        <input type="text" class="form-control" #inputtext aria-describedby="search-text" 
+           placeholder="Introduce el título de una película" 
+          autofocus>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="alert alert-info" role="alert" style="text-align: center;" *ngIf="(inputtext.value === '' && movies===null) || movies===null ">
+        Aún no has buscado ninguna película...
+    </div>
+    <div class="alert alert-warning" role="alert" style="text-align: center;" *ngIf="inputtext.value != '' && !hasResults && movies!=null">
+        {{inputtext.value}} no se corresponde con ninguna película...
+    </div>
+</div>
+
+
+
+<app-list [movies]="movies" *ngIf="!loading"></app-list>
